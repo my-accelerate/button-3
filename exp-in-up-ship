@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Shipment</title>
+<head>
+<script type="text/javascript">
+function success(){
+	alert("Advance Shipping Notice Successfully Created!!");
+	$(".success-box").toggle();
+	}
+	
+</script>
+<style>
+
+table{
+border-collapse: collapse;
+border-color: 2px solid black;
+
+}
+
+th, td {
+	border-collapse: collapse;
+	text-align: left;
+	padding: 8px;
+	
+}
+
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th {
+	background-color: #1E90FF;
+	color: white;
+	padding:5px;
+}
+
+p1 {
+	font-family: Times New Roman;
+	font-style: bold;
+	font-size: 20px;
+	padding-left: 80px;
+}
+
+.btn {
+	color: white;
+	background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%)
+		100%) rgb(71, 180, 245);
+	width: 100px;
+	height: 40px;
+}
+</style>
+</head>
+<body>
+	<form
+		style="border: 2px solid #1E90FF; background-color: rgba(240, 240, 240, 1); height: auto; width: 900px;">
+
+		<p align="center">
+			<image src="logo_pg.png"
+				style="height: 54px; width: 54px; position: absolute; top: 10px; right: 10px;">
+			<br>
+			<b>Expeditor (IN)</b>
+		</p>
+		<br> <br>
+
+		<table width=100%>
+			<td>Shipment#</td>
+			<td><select name="actors"
+				style="width: 170px; border: 2px solid Forestgreen">
+					<option>Select</option>
+					<option value="buyer">PGSH2106</option>
+			</select></td>
+			<td>Bill of Lading#</td>
+			<td>
+			<label
+				style="border: 2px solid Forestgreen; width: 200px; height: 20px; background: white; color: #696969;">
+					<label style="padding-left: 8px; padding-right: 40px;"><a href="#" target=""><i>Upload BOL<i><a></label>
+			</label>
+			</td>
+			</tr>
+			<tr>
+				<td>Insurance#</td>
+				<td><label
+				style="border: 2px solid Forestgreen; width: 200px; height: 20px; background: white; color: #696969;">
+					<label style="padding-left: 8px; padding-right: 40px;">UNIND0706</label>
+			</label>
+			</td>
+				<td>Shipped Date</td>
+				<td><label
+					style="border: 2px solid Forestgreen; width: 200px; height: 20px; background: white; color: #696969;">
+						<label style="padding-left: 8px; padding-right: 40px;">21/06/2017</label></td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+				<td>Shipped Location</td>
+				<td><label
+				style="border: 2px solid Forestgreen; width: 200px; height: 20px; background: white; color: #696969;">
+					<label style="padding-left: 8px; padding-right: 40px;">Port of LA</label>
+			</label></td>
+			</tr>
+
+
+		</table>
+		<p1>Shipment Details</p1>
+		
+		
+
+		<table class="detail" width=90% align="center" border="1">
+		
+		
+	
+			<center>
+				
+					<tr>
+						<td style="border:none;"></td>
+						<th style="border: 1px solid black;">Packaging Type</th>
+						<th style="border: 1px solid black;">Shipped Location</th>
+						<th style="border: 1px solid black;">PO#</th>
+						<th style="border: 1px solid black;">Lot#</th>
+						<th style="border: 1px solid black;">Total Quantity</th>
+						<th style="border: 1px solid black;">Total Weight(kg)</th>
+						<th style="border: 1px solid black;">Custom Duty($)</th>
+
+					</tr>
+			
+					<tr>
+					 	
+				    	<td style="border:none;"><input type="checkbox"></td>
+						<td style="border: 1px solid black;">Metal Containers</td>
+						<td style="border: 1px solid black;">P&G Warehouse, Phoenix</td>
+						<td style="border: 1px solid black;">PGPO2605</td>
+						<td style="border: 1px solid black;">1</td>
+						<td style="border: 1px solid black;">10</td>
+						<td style="border: 1px solid black;">100.50</td>
+						<td style="border: 1px solid black;">10.20</td>
+						</tr>
+		
+					</tr>
+		</table>
+		</div>
+
+
+		<table>
+			<tr>
+				<td style="padding-left: 80px;"><input type="button"
+					value="Add details" class="btn add-row"></td>
+				<td><input type="button" value="Delete details"
+					class="btn delete-row"></td>
+		</table>
+		<table align="center">
+
+			<tr>
+				<td><input type="button" value="Update" onclick="success()"
+					class="btn"></td>
+				<td><input type="button" value="Cancel" onclick="#" class="btn"></td>
+			</tr>
+		</table>
+		
+
+		</table>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+function success(){
+	alert("Advance Shipping Notice Successfully Created!!");
+	}
+	
+$(".add-row").click(function(){
+	var data = '<tr><td name="select" style="border:none"><input type="checkbox" name="record"></td><td><input style="width: 100px" type="text" id="pkg-type"></td><td><input style="width: 80px" type="text" id="shipped-location"></td><td><input style="width: 100px" type="text" id="po-no"></td><td><input style="width: 50px" type="text" id="lot-no"></td><td><input style="width: 100px" type="text" id="qty"></td><td><input style="width: 100px" type="text" id="weight"></td><td><input style="width: 50px" type="text" id="weight"></td></tr>';
+	$(".detail").append(data);
+});
+
+$(".delete-row").click(function(){
+	$(".detail tbody").find('input[name="record"]').each(function(){
+		if($(this).is(":checked")){
+			$(this).parents("tr").remove();
+		}
+		
+	});
+});
+</script>
+</html>
